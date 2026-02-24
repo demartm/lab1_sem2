@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define size 11
 
 /*
 Формулировка задачи:
@@ -10,18 +9,18 @@
 
 int main()
 {
-        //char S1[S1_size] = "nothingspc"; //Вывод: ningspc
-        //char S2[S2_size] = "oth";
+        //char S1[] = "nothingspc"; //Вывод: ningspc
+        //char S2[] = "oth";
 
-        //char S1[S1_size] = "somerandom"; //Вывод: smandm
-        //char S2[S2_size] = "qwertyuiop";
+        //char S1[] = "somerandom"; //Вывод: smandm
+        //char S2[] = "qwertyuiop";
 
-        //char S1[S1_size] = "randomtext"; //Вывод: random
-        //char S2[S2_size] = "text";
+        //char S1[] = "randomtext"; //Вывод: random
+        //char S2[] = "text";
 
-        char S1[size] = "randomtext"; //Вывод: text
-        char S2[size] = "random";
-        bool exist[127] = { 0 };
+        char S1[] = "randomtext"; //Вывод: text
+        char S2[] = "random";
+        bool exist[256] = { 0 };
 
         printf("%s\n", S1);
 
