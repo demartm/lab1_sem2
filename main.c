@@ -10,17 +10,17 @@
 
 int main()
 {
-        //char W1[word_size] = "qwertyuiop";
-        //char W2[word_size] = "uiopqwerty"; //Вывод: annogram
+        //char W1[] = "qwertyuiop";
+        //char W2[] = "uiopqwerty"; //Вывод: annogram
 
 
-    //char W1[word_size] = "noannogram";
-        //char W2[word_size] = "annogram"; //Вывод: not an annogram
+        //char W1[] = "noannogram";
+        //char W2[] = "annogram"; //Вывод: not an annogram
 
-        char W1[word_size] = "randomtext";
-        char W2[word_size] = "ardnmoettx"; //Вывод: annogram
+        char W1[] = "randomtext";
+        char W2[] = "ardnmoettx"; //Вывод: annogram
 
-        int exist[127] = { 0 };
+        int exist[256] = { 0 };
         bool annogram = true;
 
         int length = 0;
