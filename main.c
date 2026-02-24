@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define array_size 18
+#define array_size 256
 /*
    Формулировка задачи:
    Дана непустая последовательность слов из строчных букв; между соседними словами – запятая, за последним словом – точка.
@@ -8,10 +8,10 @@
 */
 int main()
 {
-    //char words[array_size] = "hello,worldd,dd.";
-    //char words[array_size] = "hello,world,char.";
-    //char words[array_size] = "add,odd,doubled.";
-    char words[array_size] = "odds,ddd,nothing.";
+    //char words[] = "hello,worldd,dd.";  //Вывод: worldd  dd
+    //char words[] = "hello,world,char."; //Вывод:
+   // char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
+    char words[] = "odds,ddd,nothing.";   //Вывод: odds
 
     int begin[array_size] = { 0 };
     int size[array_size] = { 0 };
