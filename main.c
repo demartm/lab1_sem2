@@ -26,13 +26,13 @@ int main()
         printf("%s\n", S1);
 
         for (int i = 0; S2[i] != '\0'; i++) {
-                exist[S2[i] - 'a'] = 1;
+                exist[S2[i]] = 1;
         }
 
         int old = 0;
 
         for (int i = 0; S1[i] != '\0'; i++) {
-                if (!exist[S1[i]-'a']) {
+                if (!exist[S1[i]]) {
                         S1[old] = S1[i];
                 old++;
                 }
