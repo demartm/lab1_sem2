@@ -28,17 +28,17 @@ int main()
 
 
         for (length = 0; W1[length] != '\0'; length++) {
-                exist[(int)(W1[length] - 'a')] += 1;
+                exist[W1[length]] += 1;
         }
         int i = 0;
 
         for (i = 0; W2[i] != '\0' && annogram; i++) {
 
-                if (!exist[(int)(W2[i] - 'a')]) {
+                if (!exist[W2[i]]) {
                         annogram = false;
                 }
                 else {
-                        exist[(int)(W2[i] - 'a')] -= 1;
+                        exist[W2[i]] -= 1;
                 }
         }
 
