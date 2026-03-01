@@ -1,52 +1,79 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 
-#define word_size 11
 
 /*
 Формулировка задачи:
 1. Даны два слова W1 и W2. Составляют ли они анаграмму (т.е. получаются ли друг из друга перестановкой букв)? Пример анаграммы: комар - корма.
 */
 
-int main()
-{
-        //char W1[] = "qwertyuiop";
-        //char W2[] = "uiopqwerty"; //Вывод: annogram
+bool fill_tab(char *W1,int *Tab) {
+    if (W1 && Tab) {
+        for (int i = 0; W1[i] != '\0'; i++) {
+            Tab[W1[i]] += 1;
+        }
+        return 1;
+    }
+    else {
+        return 0;
+    }
 
+}
 
-        //char W1[] = "noannogram";
-        //char W2[] = "annogram"; //Вывод: not an annogram
+bool check_annogram(char *W1, char *W2, int *Tab) {
 
-        char W1[] = "randomtext";
-        char W2[] = "ardnmoettx"; //Вывод: annogram
-
-        int exist[256] = { 0 };
+    if (W1 && W2 && Tab) {
         bool annogram = true;
 
-        int length = 0;
-
-
-
-        for (length = 0; W1[length] != '\0'; length++) {
-                exist[W1[length]] += 1;
-        }
-        int i = 0;
-
-        for (i = 0; W2[i] != '\0' && annogram; i++) {
-
-                if (!exist[W2[i]]) {
-                        annogram = false;
-                }
-                else {
-                        exist[W2[i]] -= 1;
-                }
+        if (strlen(W1) != strlen(W2)) {
+            return false;
         }
 
-        if (annogram && length == i) {
-                printf("annogram");
+        for (int i = 0; W2[i] != '\0' && annogram; i++) {
+
+            if (!Tab[W2[i]]) {
+                annogram = false;
+            }
+            else {
+                Tab[W2[i]] -= 1;
+            }
         }
-        else {
-                printf("not an annogram");
-        }
+        return annogram;
+    }
+    else {
         return 0;
+    }
+}
+
+int main()
+{
+    //char W1[] = "qwertyuiop";
+    //char W2[] = "uiopqwerty"; //Вывод: annogram
+
+
+    //char W1[] = "noannogram";
+    //char W2[] = "annogram"; //Вывод: not an annogram
+
+    //char W1[] = "randomtcxt";
+    //char W2[] = "ardnmoettx"; //Вывод: not an annogram
+
+    char W1[] = "randomtext";
+    char W2[] = "ardnmoettx"; //Вывод: annogram
+
+    int Tab[256] = { 0 };
+
+
+    if (!fill_tab(W1, Tab)) {
+        printf("Invalid pointer");
+        return 0;
+    }
+
+    if (check_annogram(W1,W2,Tab)) {
+        printf("annogram");
+    }
+    else {
+        printf("not an annogram");
+    }
+    return 0;
 }
