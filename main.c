@@ -48,18 +48,18 @@ bool check_annogram(char *W1, char *W2, int *Tab) {
 
 int main()
 {
-    //char W1[] = "qwertyuiop";
-    //char W2[] = "uiopqwerty"; //Вывод: annogram
+    //unsigned char W1[] = "qwertyuiop";
+    //unsigned char W2[] = "uiopqwerty"; //Вывод: annogram
 
 
-    //char W1[] = "noannogram";
-    //char W2[] = "annogram"; //Вывод: not an annogram
+    //unsigned char W1[] = "noannogram";
+    //unsigned char W2[] = "annogram"; //Вывод: not an annogram
 
-    //char W1[] = "randomtcxt";
-    //char W2[] = "ardnmoettx"; //Вывод: not an annogram
+    //unsigned char W1[] = "randomtcxt";
+    //unsigned char W2[] = "ardnmoettx"; //Вывод: not an annogram
 
-    char W1[] = "randomtext";
-    char W2[] = "ardnmoettx"; //Вывод: annogram
+    unsigned char W1[] = "randomtext";
+    unsigned char W2[] = "ardnmoettx"; //Вывод: annogram
 
     int Tab[256] = { 0 };
 
