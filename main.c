@@ -44,17 +44,17 @@ bool delete_matches(char *S1, bool *Tab) {
 
 int main()
 {
-    //char S1[] = "nothingspc"; //Вывод: ningspc
-    //char S2[] = "oth";
+    //unsigned char S1[] = "nothingspc"; //Вывод: ningspc
+    //unsigned char S2[] = "oth";
 
-    //char S1[] = "somerandom"; //Вывод: smandm
-    //char S2[] = "qwertyuiop";
+    //unsigned char S1[] = "somerandom"; //Вывод: smandm
+    //unsigned char S2[] = "qwertyuiop";
 
-    //char S1[] = "randomtext"; //Вывод: random
-    //char S2[] = "text";
+    //unsigned char S1[] = "randomtext"; //Вывод: random
+    //unsigned char S2[] = "text";
 
-    char S1[] = "randomtext"; //Вывод: text
-    char S2[] = "random";
+    unsigned char S1[] = "randomtext"; //Вывод: text
+    unsigned char S2[] = "random";
     bool Tab[256] = { 0 };
 
     printf("%s\n", S1);
