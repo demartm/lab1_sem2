@@ -80,7 +80,9 @@ bool standartize_string(char *words, char *words_stricted, bool *Tab) {
 
 
         }
-        words_stricted[index] = '\0';
+
+        words_stricted[index] = '.';
+        words_stricted[index+1] = '\0';
         return 1;
     }
     return 0;
@@ -131,7 +133,7 @@ int main()
    // char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
     //char words[] = "      o     dds,,,,     ddd,          nothingdd, need,          .     doubled.";   //Вывод: "o     dds"    "nothingdd"
     //char words[] = "div ide,od,,,,,,,,,,d,,,,,,,,.doubled.";// Вывод: div ide
-    char words[] = "      add,odd.  doubled.";// вывод: add odd
+    char words[] = "      add,odd , doubled    ";// вывод: add odd doubled
     char words_stricted[array_size] = { 0 };
 
     int begin[array_size] = { 0 };
