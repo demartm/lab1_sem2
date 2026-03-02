@@ -48,7 +48,7 @@ bool standartize_string(char* words, char* words_stricted, bool* Tab) {
                 }
                 else {
                     if (!Tab[words[i + 1]] && index > 0) {
-                        words_stricted[index] = words[i];
+                        words_stricted[index] = ',';
                         index++;
                     }
                 }
@@ -56,8 +56,10 @@ bool standartize_string(char* words, char* words_stricted, bool* Tab) {
 
 
             }
-        }
-        words_stricted[index] = '\0';
+}
+
+        words_stricted[index] = '.';
+        words_stricted[index+1] = '\0';
         return 1;
     }
     return 0;
@@ -111,7 +113,7 @@ int main()
    // char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
     //char words[] = "      o     dds,,,,     ddd,          nothingdd, fxdeed ,      . doubled.";   //Вывод: dds nothingdd fxdeed
     //char words[] = "div ide,od,,,,,,,,,,d,,,,,,,,.doubled.";// Вывод: Invalid pointer or zero words found
-    char words[] = "      add,odd. doubled.";// вывод: add odd
+    char words[] = "      add,odd doubled";// вывод: add odd doubled
     char words_stricted[array_size] = { 0 };
 
     int begin[array_size] = { 0 };
