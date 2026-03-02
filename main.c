@@ -128,18 +128,18 @@ int find_suitable_words(char *words_stricted, bool *Tab ,int *begin, int *size) 
 
 int main()
 {
-    //char words[] = "hello,worldd,dd.";  //Вывод: worldd  dd
-    //char words[] = "hello,world,char."; //Вывод:Invalid pointer or zero words found
-   // char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
-    //char words[] = "      o     dds,,,,     ddd,          nothingdd, need,          .     doubled.";   //Вывод: "o     dds"    "nothingdd"
-    //char words[] = "div ide,od,,,,,,,,,,d,,,,,,,,.doubled.";// Вывод: div ide
-    char words[] = "      add,odd , doubled    ";// вывод: add odd doubled
-    char words_stricted[array_size] = { 0 };
+    //unsigned char words[] = "hello,worldd,dd.";  //Вывод: worldd  dd
+    //unsigned char words[] = "hello,world,char."; //Вывод:Invalid pointer or zero words found
+   // unsigned char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
+    //unsigned char words[] = "      o     dds,,,,     ddd,          nothingdd, need,          .     doubled.";   //Вывод: "o     dds"    "nothingdd"
+    //unsigned char words[] = "div ide,od,,,,,,,,,,d,,,,,,,,.doubled.";// Вывод: div ide
+    unsigned char words[] = "      add,odd , doubled    ";// вывод: add odd doubled
+    unsigned char words_stricted[array_size] = { 0 };
 
     int begin[array_size] = { 0 };
     int size[array_size] = { 0 };
 
-    char delimeters[] = " ,.";
+    unsigned char delimeters[] = " ,.";
 
     bool Tab[256] = { 0 };
 
