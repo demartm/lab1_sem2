@@ -56,8 +56,11 @@ int main()
     //char W1[] = "randomtcxt";
     // char W2[] = "ardnmoettx"; //Вывод: not an annogram
 
-    char W1[] = "listen";
-    char W2[] = "silent"; //Вывод: annogram
+    //char W1[] = "listen";
+    //char W2[] = "silent"; //Вывод: annogram
+
+    char W1[] = "abcабв";
+    char W2[] = "абвabc"; //Вывод: annogram
 
     //char W1[] = "проверка";
     //char W2[] = "рпвореак"; //Вывод: annogram
