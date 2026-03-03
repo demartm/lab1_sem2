@@ -10,76 +10,15 @@
    Напечатать все слова из списка, содержащие ровно две буквы d
 */
 
-//bool fill_tab(char* delimeters, bool* Tab) {
-//    if (delimeters && Tab) {
-//
-//        size_t len = strlen(delimeters);
-//        for (int i = 0; i < len; i++) {
-//            Tab[(unsigned char)delimeters[i]] = true;
-//        }
-//        return 1;
-//    }
-//    else {
-//
-//        return 0;
-//    }
-//}
 
-bool standartize_string(char* words, char* words_stricted) {
-    if (words && words_stricted) {
+
+
+int find_suitable_words(char* words_stricted, int* list) {
+
+    if (words_stricted && list) {
 
         bool Tab[256] = { 0 };
-        char delimeters[] = " ,.";
-
-        size_t len = strlen(delimeters);
-        for (int i = 0; i < len; i++) {
-            Tab[(unsigned char)delimeters[i]] = true;
-        }
-
-        int temp = 0;
-        bool need_comma = false;
-        int index = 0;
-
-        len = strlen(words);
-
-        for (int i = 0; i < len; i++) {
-
-            if (!Tab[(unsigned char)words[i]]) {
-
-                words_stricted[index] = words[i];
-                index++;
-            }
-            else {
-                if (words[i] == '.') {//????????????
-                    //words_stricted[index] = '.';
-                    //index++;
-                    i = len;
-                }
-                else {
-                    if (!Tab[(unsigned char)words[i + 1]] && index > 0) {
-                        words_stricted[index] = ',';
-                        index++;
-                    }
-                }
-
-
-
-            }
-        }
-
-        words_stricted[index] = '.';
-        words_stricted[index + 1] = '\0';
-        return 1;
-    }
-    return 0;
-}
-
-int find_suitable_words(char* words_stricted, int* begin, int* size) {
-
-    if (words_stricted && begin && size) {
-
-        bool Tab[256] = { 0 };
-        char delimeters[] = ",.";
+        char delimeters[] = " ,.\0";
 
         size_t len = strlen(delimeters);
         for (int i = 0; i < len; i++) {
@@ -90,22 +29,22 @@ int find_suitable_words(char* words_stricted, int* begin, int* size) {
         int word_begin = 0;
         int d_counter = 0;
         int word_counter = 0;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0;i < len; i++) {
 
             if (Tab[(unsigned char)words_stricted[i]]) {
 
                 if (d_counter == 2) {
 
-                    begin[word_counter] = word_begin;
-                    size[word_counter] = i - word_begin;
-                    word_counter++;
+                    list[word_counter] = word_begin;
+                    list[word_counter + 1] = i - word_begin;
+                    word_counter += 2;
                 }
 
                 word_begin = i + 1;
                 d_counter = 0;
-                /*if (words_stricted[i] == '.') {
+                if (words_stricted[i] == '.') {
                     i = len;
-                }*/
+                }
 
             }
             else {
@@ -152,31 +91,20 @@ int main()
     // char words[] = "     add,odd. doubled.";// вывод: add odd
 
     //char words[] = "d-d, d_____d, d,,,,,,d";//Вывод: d-d  d_____d
-    //char words[] = "coded,banded,landed.";//Вывод: coded  banded  landed
+    char words[] = "coded,banded     ,landed.";//Вывод: coded  banded  landed
 
-    char words[] = "       coded  , banded ,     landed.";//Вывод: coded  banded  landed
-
-     char words_stricted[array_size] = { 0 };
-
-    int begin[array_size] = { 0 };
-    int size[array_size] = { 0 };
-
-     //char delimeters[] = " ,.";
-
-    //bool Tab[256] = { 0 };
+   // char words[] = "      ,    coded     ,     banded   .          ,      landed.";//Вывод: coded  banded
 
 
-    /*if (!fill_tab(delimeters, Tab)) {
-        printf("Invalid pointer");
-        return 0;
-    }*/
-    if (!standartize_string(words, words_stricted)) {
-        printf("Invalid pointer");
-        return 0;
-    }
-    //printf("%s\n", words_stricted);
-    //size_t len = strlen(words_stricted);
-    int word_counter = find_suitable_words(words_stricted, begin, size);
+
+    int list[array_size] = { 0 };
+
+
+  int word_counter = find_suitable_words(words, list);
+  //int word_counter = find_suitable_words(NULL, list); //Вывод: Invalid pointer
+  //int word_counter = find_suitable_words(words, NULL);//Вывод: Invalid pointer
+  //int word_counter = find_suitable_words(NULL,NULL);  //Вывод: Invalid pointer
+
     if (word_counter == -1) {
         printf("Invalid pointer");
         return 0;
@@ -187,11 +115,12 @@ int main()
             return 0;
         }
     }
-    for (int i = 0; i < word_counter; i++) {
+    for (int i = 0; i < word_counter; i += 2) {
 
-        printf("%.*s  ", size[i], words_stricted + begin[i]);
+        printf("%.*s  ", list[i+1], words + list[i]);
 
     }
 
     return 0;
 }
+
