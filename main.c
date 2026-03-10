@@ -110,22 +110,22 @@ int main()
 
   //int *ptr;
 
-  int word_counter = find_suitable_words(words, list);
-  //int word_counter = find_suitable_words(NULL, list); //Вывод: Invalid pointer
-  //int word_counter = find_suitable_words(words, NULL);//Вывод: Invalid pointer
-  //int word_counter = find_suitable_words(NULL,NULL);  //Вывод: Invalid pointer
+  int index = find_suitable_words(words,list);
+  //int index = find_suitable_words(NULL, list); //Вывод: Invalid pointer
+  //int index = find_suitable_words(words, NULL);//Вывод: Invalid pointer
+  //int index = find_suitable_words(NULL,NULL);  //Вывод: Invalid pointer
 
-    if (word_counter == -1) {
+    if (index== -1) {
         printf("Invalid pointer");
         return 0;
     }
     else {
-        if (word_counter == 0) {
+        if (index== 0) {
             printf("No souitable words found");
             return 0;
         }
     }
-    for (int i = 0; i < word_counter; i += 2) {
+    for (int i = 0; i < index; i += 2) {
 
         printf("%.*s  ", list[i+1], words + list[i]);
 
