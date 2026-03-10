@@ -106,6 +106,7 @@ int main()
 
     int list[array_size] = { 0 };
 
+  //int *ptr;
 
   int word_counter = find_suitable_words(words, list);
   //int word_counter = find_suitable_words(NULL, list); //Вывод: Invalid pointer
