@@ -18,7 +18,7 @@ int find_suitable_words(char* words_stricted, int* list) {
     if (words_stricted && list) {
 
         bool Tab[256] = { 0 };
-        char delimeters[] = " ,.\0";
+        char delimeters[] = " ,.";
 
         size_t len = strlen(delimeters);
         for (int i = 0; i < len; i++) {
@@ -51,6 +51,13 @@ int find_suitable_words(char* words_stricted, int* list) {
                 if (words_stricted[i] == 'd') {
                     d_counter++;
                 }
+            if (i == (len - 1) && d_counter == 2) {
+                    list[word_counter] = word_begin;
+                    list[word_counter + 1] = i - word_begin + 1;
+                    word_counter += 2;
+                }
+
+
             }
         }
         return word_counter;
@@ -78,7 +85,8 @@ int main()
     //char words[] = "blended,waded,sided";//Вывод: blended  waded  sided
     //char words[] = "blended,waded.sided";//Вывод: blended  waded
 
-    //char words[] = "I didn't add commas or dots here";//Вывод: didn't  add
+    //char words[] = "I didn't add commas or dots hered";//Вывод: didn't  add
+    //char words[] = "I didn't add commas or dots heredd";//Вывод: didn't  add  heredd
 
     //char words[] = "   hello   ,,,   add   ,,,   world   ,,,   odd   ,,,   dd   ,,,   ddd   .";//Вывод: add  odd  dd
 
@@ -86,14 +94,13 @@ int main()
 
     //char words[] = "ended,привет,tended.";//Вывод: ended  tended
     //char words[] = "ended,приветdd,tended.";//Вывод: ended  приветdd  tended
-    //char words[] = "ended,привет,tended.";//Вывод: ended  tended
 
     // char words[] = "     add,odd. doubled.";// вывод: add odd
 
     //char words[] = "d-d, d_____d, d,,,,,,d";//Вывод: d-d  d_____d
-    char words[] = "coded,banded     ,landed.";//Вывод: coded  banded  landed
+    //char words[] = "coded,banded     ,landed.";//Вывод: coded  banded  landed
 
-   // char words[] = "      ,    coded     ,     banded   .          ,      landed.";//Вывод: coded  banded
+    char words[] = "      ,    coded     ,     banded   .          ,      landed.";//Вывод: coded  banded
 
 
 
