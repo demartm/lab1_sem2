@@ -73,6 +73,7 @@ int main()
     setlocale(LC_ALL, "Russian");
     //char words[] = "hello,worldd,dd.";  //Вывод: worldd  dd
     //char words[] = "hello,world,char."; //Вывод: No souitable words found
+    //char words[] = ""; //Вывод: No souitable words found
     //char words[] = "add,odd,doubled.";  //Вывод: add odd doubled
     //char words[] = "      o     dds,,,,     ddd,          nothingdd, fxdeed ,      . doubled.";   //Вывод: dds nothingdd fxdeed
     //char words[] = "div ide,od,,,,,,,,,,d,,,,,,,,.doubled.";// Вывод: No souitable words found
@@ -101,6 +102,7 @@ int main()
     //char words[] = "coded,banded     ,landed.";//Вывод: coded  banded  landed
 
     char words[] = "      ,    coded     ,     banded   .          ,      landed.";//Вывод: coded  banded
+
 
 
 
